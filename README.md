@@ -84,3 +84,10 @@ Included in the repository are:
 * Metadata such as DB connection information, IAM role, and source data location in S3
     * See `dwh.cfg` for most details
   
+# Run Instructions
+
+To run the full ETL process, use:
+````
+python create_tables.py
+python etl.py
+````

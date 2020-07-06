@@ -4,12 +4,32 @@ from sql_queries import copy_table_queries, insert_table_queries
 
 
 def load_staging_tables(cur, conn):
+    """
+    Load raw data into staging tables
+    
+    Args:
+        cur: psycopgq cursor object to interact with database
+        conn: psycopgq conn object to commit interactions to database
+    
+    Returns: 
+        None
+    """
     for query in copy_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def insert_tables(cur, conn):
+    """
+    Load fact and dimension table data from staging tables
+    
+    Args:
+        cur: psycopgq cursor object to interact with database
+        conn: psycopgq conn object to commit interactions to database
+    
+    Returns: 
+        None
+    """
     for query in insert_table_queries:
         cur.execute(query)
         conn.commit()
